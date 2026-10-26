@@ -43,8 +43,8 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://pytch.cc"
-Repository = "https://github.com/pytch-cc/pytch-mcp-server"
-Documentation = "https://github.com/pytch-cc/pytch-mcp-server#readme"
+Repository = "https://github.com/vnklv/pytch-mcp-server"
+Documentation = "https://github.com/vnklv/pytch-mcp-server#readme"
 
 [project.scripts]
 pytch-mcp = "pytch_mcp.server:main"
