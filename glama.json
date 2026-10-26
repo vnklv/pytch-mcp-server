@@ -1,0 +1,9 @@
+{
+  "$schema": "https://glama.ai/mcp/schema.json",
+  "name": "pytch-mcp",
+  "title": "Pytch AI PR & Outreach",
+  "description": "Model Context Protocol server for Pytch autonomous PR agent, email deliverability audit, and AI brand visibility.",
+  "categories": ["marketing", "communication", "developer-tools"],
+  "tags": ["pr", "outreach", "email-deliverability", "spf-dkim-dmarc", "geo", "ai-visibility"],
+  "icon": "https://pytch.cc/icon.png"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://smithery.ai/docs/config-schema.json",
+  "startCommand": {
+    "type": "stdio",
+    "config": {
+      "command": "uvx",
+      "args": ["pytch-mcp"],
+      "env": {
+        "PYTCH_API_KEY": {
+          "type": "string",
+          "description": "Your Pytch secret API key (starts with pytch_live_...)"
+        },
+        "PYTCH_API_URL": {
+          "type": "string",
+          "default": "https://api.pytch.cc",
+          "description": "Base URL of Pytch backend API"
+        }
+      }
+    }
+  }
+}
