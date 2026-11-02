@@ -16,11 +16,20 @@ import logging
 from typing import Optional, List, Dict, Any
 import httpx
 from mcp.server.mcpserver import MCPServer
+from mcp.types import ToolAnnotations
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("pytch-mcp")
 
 DEFAULT_API_URL = "https://api.pytch.cc"
+
+# Standard Tool Annotations for read-only analytical/informational queries
+DEFAULT_TOOL_ANNOTATIONS = ToolAnnotations(
+    readOnlyHint=True,
+    destructiveHint=False,
+    idempotentHint=True,
+    openWorldHint=True
+)
 
 mcp = MCPServer(
     name="Pytch PR Assistant",
@@ -76,7 +85,15 @@ async def _api_request(
             return {"error": f"Connection error: {str(e)}"}
 
 
-@mcp.tool(name="check_domain_deliverability")
+@mcp.tool(
+    name="check_domain_deliverability",
+    annotations=ToolAnnotations(
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=True
+    )
+)
 async def check_domain_deliverability(domain: str, selector: Optional[str] = None) -> str:
     """
     Check domain email deliverability (F6 Block):
@@ -95,7 +112,15 @@ async def check_domain_deliverability(domain: str, selector: Optional[str] = Non
     return json.dumps(res, ensure_ascii=False, indent=2)
 
 
-@mcp.tool(name="check_ai_brand_visibility")
+@mcp.tool(
+    name="check_ai_brand_visibility",
+    annotations=ToolAnnotations(
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=True
+    )
+)
 async def check_ai_brand_visibility(
     brand_name: str,
     category: str,
@@ -127,7 +152,15 @@ async def check_ai_brand_visibility(
     return json.dumps(res, ensure_ascii=False, indent=2)
 
 
-@mcp.tool(name="search_journalists")
+@mcp.tool(
+    name="search_journalists",
+    annotations=ToolAnnotations(
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=True
+    )
+)
 async def search_journalists(topic: str, outlet: Optional[str] = None, limit: int = 10) -> str:
     """
     Search verified tech and business journalists by beat, topic or media publication.
@@ -145,7 +178,15 @@ async def search_journalists(topic: str, outlet: Optional[str] = None, limit: in
     return json.dumps(res, ensure_ascii=False, indent=2)
 
 
-@mcp.tool(name="list_pr_projects")
+@mcp.tool(
+    name="list_pr_projects",
+    annotations=ToolAnnotations(
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=True
+    )
+)
 async def list_pr_projects() -> str:
     """
     List active PR campaigns and projects for the authenticated user.
@@ -155,7 +196,15 @@ async def list_pr_projects() -> str:
     return json.dumps(res, ensure_ascii=False, indent=2)
 
 
-@mcp.tool(name="get_project_results")
+@mcp.tool(
+    name="get_project_results",
+    annotations=ToolAnnotations(
+        readOnlyHint=True,
+        destructiveHint=False,
+        idempotentHint=True,
+        openWorldHint=True
+    )
+)
 async def get_project_results(project_id: str, limit: int = 20) -> str:
     """
     Get identified media contacts, pitch status, and response activity for a project.
@@ -166,6 +215,7 @@ async def get_project_results(project_id: str, limit: int = 20) -> str:
     """
     res = await _api_request(method="GET", path=f"/results/{project_id}", params={"limit": limit})
     return json.dumps(res, ensure_ascii=False, indent=2)
+
 
 
 def main():

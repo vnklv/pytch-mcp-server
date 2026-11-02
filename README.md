@@ -3,6 +3,7 @@
 [![MCP Standard](https://img.shields.io/badge/MCP-2.0-blue.svg)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![M8ven Score](https://m8ven.ai/badge/mcp/vnklv-pytch-mcp-server-1e3dap?v=ca1bb8273acb539f88dfb2da493993a7)](https://m8ven.ai/mcp/vnklv-pytch-mcp-server-1e3dap?s=readme)
 
 Official **Model Context Protocol (MCP)** server for [Pytch](https://pytch.cc) — the autonomous AI PR & Journalist Outreach platform.
 
